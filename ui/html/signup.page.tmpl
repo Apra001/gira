@@ -2,6 +2,7 @@
 {{define "title"}}Signup{{end}}
 {{define "main"}}
 <form action='/users/create' method='POST'>
+    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
     <div>
         <label>Username:</label>
         <input type='text' name='username' required>

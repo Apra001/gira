@@ -14,7 +14,7 @@ func (s *Server) routes() http.Handler {
 	r := mux.NewRouter()
 
 	standartMiddleware := alice.New(middleware.RecoverPanic(s.Log), middleware.LogRequest(s.Log), s.secureHeaders)
-	dynamicMiddleware := alice.New(s.Session.Enable)
+	dynamicMiddleware := alice.New(s.Session.Enable, noSurf)
 	requireLogin := alice.New(s.requireLogin)
 
 	r.HandleFunc("/", s.handleHome()).Methods(http.MethodGet)

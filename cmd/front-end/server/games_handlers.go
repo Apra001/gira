@@ -6,6 +6,7 @@ import (
 
 	"github.com/asankov/gira/pkg/client"
 	"github.com/asankov/gira/pkg/models"
+	"github.com/justinas/nosurf"
 )
 
 func (s *Server) handleHome() http.HandlerFunc {
@@ -144,8 +145,9 @@ func (s *Server) render(w http.ResponseWriter, r *http.Request, data TemplateDat
 		} else {
 			data.User = usr
 		}
-
 	}
+
+	data.CSRFToken = nosurf.Token(r)
 	if err := s.Renderer.Render(w, r, data, p); err != nil {
 		s.Log.Printf("error while calling Render: %v", err)
 		http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)

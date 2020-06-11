@@ -27,8 +27,9 @@ type TemplateData struct {
 	Games     []*models.Game
 	UserGames []*models.UserGame
 
-	Error string
-	Flash string
+	Error     string
+	Flash     string
+	CSRFToken string
 }
 
 // Renderer is the interface that will be used to interact with the part of the program

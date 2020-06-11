@@ -3,6 +3,7 @@
 {{define "main"}}
 {{ if .Games}}
 <form action="/games/add" method="POST">
+    <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
     <label for="game">Select a game:</label>
     <select name="game" id="game">
         {{range .Games}}
