@@ -68,13 +68,6 @@ func (m *UserModel) Authenticate(email, password string) (*models.User, error) {
 	return &usr, nil
 }
 
-// TODO: marked for deletion
-// Get fetches the user with the given ID from the database
-// and returns the user or an error if such occurred.
-func (m *UserModel) Get(id string) (*models.User, error) {
-	return nil, nil
-}
-
 // AssociateTokenWithUser associated the given token with the given userID
 func (m *UserModel) AssociateTokenWithUser(userID, token string) error {
 	if _, err := m.DB.Exec("INSERT INTO user_tokens (user_id, token) VALUES ($1, $2)", userID, token); err != nil {
