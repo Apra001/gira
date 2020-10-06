@@ -2,7 +2,8 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/asankov/gira/badge.svg?branch=main&service=github)](https://coveralls.io/github/asankov/gira?branch=main)
 
-Gira is like Jira, but for tracking your video games progress
+Gira is like Jira, but it is for tracking your video games progress!! 
+For improving your gaming ..
 
 ### How to run
 First, run a PostgreSQL database:
